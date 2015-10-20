@@ -1,0 +1,32 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Microsoft.Samples.Kinect.BodyBasics.MainWindow"
+        Title="Body Joints Udp" 
+        Height="800" Width="600" 
+        Loaded="MainWindow_Loaded"
+        Closing="MainWindow_Closing">
+    <Window.Resources>
+        <SolidColorBrush x:Key="MediumGreyBrush" Color="#ff6e6e6e" />
+    </Window.Resources>
+    <Grid Margin="10,0,10,4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="0,31,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="{StaticResource MediumGreyBrush}" FontFamily="Segoe UI" FontSize="18" Height="25" Width="205"><Run Text="Body Joints UDPNetwork"/><LineBreak/><Run/></TextBlock>
+        <Image Grid.Row="0" Source="Images\Status.png" Stretch="None" HorizontalAlignment="Center" Margin="0,5,622,0" />
+
+        <Viewbox Grid.Row="1" HorizontalAlignment="Center">
+            <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
+        </Viewbox>
+        <TextBox x:Name="TextBox_IP" HorizontalAlignment="Left" Height="20" Margin="64,451,0,0" Grid.Row="1" TextWrapping="Wrap" Text="5001" VerticalAlignment="Top" Width="38"/>
+        <TextBox x:Name="TextBox_Port" HorizontalAlignment="Left" Height="20" Margin="0,451,0,0" Grid.Row="1" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" Width="59"/>
+
+        <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" x:Name="StatusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">
+            <StatusBarItem Content="{Binding StatusText}" />
+        </StatusBar>
+        <Button Content="Connect" HorizontalAlignment="Left" Margin="107,451,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Click="Button_Click"/>
+    </Grid>
+</Window>
